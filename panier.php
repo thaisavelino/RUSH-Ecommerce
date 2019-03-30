@@ -1,4 +1,24 @@
 <?php
+include("frame.php");
+include ("actionpanier.php");
+?>
+<HTML>
+
+<table>
+<caption>Mon Panier</caption>
+<thead>
+<tr >
+	<th scope="col" class="panier" style="border-radius:5px; background-color:336666"><b>Produit</b></th>
+	<th scope="col" class="panier" style="border-radius:5px; background-color:336666"> Prix unitaire </th>
+	<th scope="col" class="panier" style="border-radius:5px; background-color:336666"> Prix cumulé </th>
+	<th scope="col" class="panier" style="border-radius:5px; background-color:336666"> Quantité</th> 
+</tr>
+<thead>
+<tbody>
+<?php 
+
+
+
 if (!$_SESSION['panier'])
 	echo "Votre panier est vide";
 
@@ -12,14 +32,22 @@ if ($_SESSION[panier] && $_GET[value] !== "empty" && $_GET[command] !== "ok")
 		</td> </tr>";
 		$total = $total + $elem[prix_produit];
 	}
-	echo "<tr class=\"panier\"> <td>Total : $total € <td></tr></table><br /><br/>";
+	echo "<tr class=\"panier\"> <td class=\"total\">Total : $total € <td></tr></tbody></table><br /><br/>";
 
 	if (!$_SESSION['loggued_on_user'])
 		echo "<div> Vous devez d'abord vous connecter pour commander </div>";
-	echo "Videz votre panier : ;
+	else {
+	echo "<img src=\"./imagesdebase/Tic.png\" width=25px style=\"position:relative; top:7px; margin-right:10px\"> Validez votre commande : 
+	<form style=\"font-size:20px\" method=\"post\"action=\"panier.php?value=validate&command=ok\">
+	<input type=\"submit\" name=\"validate\" value=\"Valider le panier\"/>
+	</form>";}
+	echo "Videz votre panier : 
+	<form style=\"font-size:20px\" method=\"post\"action=\"panier.php?value=empty\">
+	<input type=\"submit\" name=\"empty\" value=\"Vider le panier\"/>
+	</form>";
 
 }
-if ($_GET[value] === "empty")
+if($_GET[value] === "empty")
 {
 	unset($_SESSION[panier]);
 	echo "Votre panier est vide";
