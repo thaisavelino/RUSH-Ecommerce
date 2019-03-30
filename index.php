@@ -1,10 +1,12 @@
 <?php
+	// CHECK login and ADD products div.
 	session_start();
 	if($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] == "OK")
 	{
 		$_SESSION['login'] = $_GET['login'];
 		$_SESSION['passwd'] = $_GET['passwd'];
 	}
+	include("products.php");
 ?>
 <html>
     <link rel="stylesheet" href="stylesheet.css">
@@ -52,16 +54,16 @@
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
 			<input type="submit" name="submit" value="Je m'inscris"/>
 		</form>
-
-		<a href="panier.php"><img src="./imagesdebase/panier.png" style="width:60px; position:relative; top:10px"><span style="margin:10px">Accéder à mon panier</a>
-
-		<br/><div style="margin-left:20px;line-height:30px; font-size:20px; letter-spacing:-3px">0<br/></div><div style="margin:18px"> Prix total : 0 € </div>
-		<br/>
-		<br/>
+		<div class"go-basket">
+			<span><a href="panier.php">Accéder à mon panier</a></span>
+			<p class="basket-qnt">0</p>
+			<p> Prix total : 0 € </p>
+		</div>
 	</div>
 
 	<div class="">
 		<section class="images">
+			<h1>Our Colors</h1>
 			<figure class="left cold">
 				<img class="img" src="/img/cold-1.jpeg" alt="A cold color">
 				<span id="cold-2">$ 2.50</span>
@@ -161,9 +163,6 @@
 					
 					
 		</section>
-
 	</div>
-
-</div>
     
     </html>

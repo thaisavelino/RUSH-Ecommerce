@@ -171,6 +171,20 @@ a:active {
 }
 
 /* ----- BUTTONS ----- */
+
+.bt-basket {
+  width:60px;
+  margin: 20px;
+  top:10px;
+  font-weight: 700;
+  background-color: #175fac;
+  color: white;
+  padding: 10px;
+}
+.basket-qnt {margin:20px;line-height:30px; font-size:20px; letter-spacing:-3px}
+
+
+width:60px; position:relative; top:10px font-wei
 .btn:link,
 .btn:visited,
 input[type=submit] {
@@ -187,6 +201,7 @@ input[type=submit].bt-add, input[type=submit].bt-add:visited {
   font-size: 12px;
   background-color: #459efd;
   border-color: #459efd;
+  display: inline;
 }
 
 input[type=submit].bt-add:hover {
@@ -228,7 +243,7 @@ input[type=submit]:active {
 
 
 /* ----------------------------------------------- */
-/* Main DIV */
+/* ALL DIV */
 /* ----------------------------------------------- */
 
 .hold {
@@ -249,6 +264,7 @@ input[type=submit]:active {
 .images {
   margin: 0 auto;
   height: 100%;
+  padding: 10px;
 }
 .left { float: left; }
 figure {
@@ -278,11 +294,8 @@ img.logo {
 
 }
 
-  /*************************MENU *********************************/
+  /************************* MENU  LEFT*********************************/
 
-
-
-/********************************************************/
 
 .menu-left:active, .menu-left:hover {
   left: 0;
@@ -290,11 +303,12 @@ img.logo {
 .menu-left {
   padding-top: 50px;
   width: 300px;
-  height: 100%;
-  background-color: #ccc;
-  left: 0;
+  height: 100vh;
+  background-color: #fbfbfb80;
+  left: 0px;
   float: left;
   display: inline;
+  margin-right: 10px;
 }
 
   /************************ Form *********************************/
