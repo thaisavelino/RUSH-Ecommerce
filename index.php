@@ -1,6 +1,7 @@
 <?php
 	// CHECK login and ADD products div.
 	session_start();
+	include("product.php");
 	if($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] == "OK")
 	{
 		$_SESSION['login'] = $_GET['login'];
@@ -27,10 +28,10 @@
     <nav class="nav-top">
         <a class="a-top" href="#" id="menu-icon"></a>
         <ul class="ul-top">
-            <li class="li-top"><a href="#" class="current">All</a></li>
-            <li class="li-top"><a href="#">Cold</a></li>
-            <li class="li-top"><a href="#">Hot</a></li>
-            <li class="li-top"><a href="#">Funny</a></li>
+            <li class="li-top"><a href="<?PHP echo "?cat=all" ?>" class="current">All</a></li>
+			<li class="li-top"><a href="<?PHP echo "?cat=hot" ?>"> Hot</a></li>
+            <li class="li-top"><a href="<?PHP echo "?cat=cold" ?>">Cold</a></li>
+            <li class="li-top"><a href="<?PHP echo "?cat=funny" ?>">Funny</a></li>
         </ul>
     </nav>
 </header>
@@ -70,7 +71,6 @@
 				PRODUCTS
 	---------------------------------------->
 	<section class="images">
-	<h1>Our Colors</h1>
 
 	
 	<!--<figure class="left cold">
@@ -83,107 +83,35 @@
 		if($_GET['cat'] === NULL)
 			foreach ($data as $key => $el)
 			{
-				echo "<figure class=\"left cold\"><a href='./index.php?cat=".$key.
-				"'><img class='imgcat' src='" . $el['img'] . "' 
+				echo "<figure class=\"left cold\"><img class='imgcat' src='" . $el['img'] . "' 
 				alt=\'" . $key . 
 				" title='" . $key.
-				"'/></a><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
+				"'/><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
 			}
 		elseif($_GET['cat'])
 		{
+			if ($_GET['cat'] === hot)
+			{
+				echo "<h1>HOT</h1>";
+			}
+			if ($_GET['cat'] === cold)
+			{
+				echo "<h1>COLD</h1>";
+			}
+			if ($_GET['cat'] === funny)
+			{
+				echo "<h1>FUNNY</h1>";
+			}
+			if ($_GET['cat'] === all)
+			{
+				echo "<h1>ALL</h1>";
+			}
 			if ($_GET['cat'] !== "hot" && $_GET['cat'] !== "cold" && $_GET['cat'] !== "funny" && $_GET['cat'] !== "all")
 				echo "GET INJECTION ERROR\n";
 			else
 				show_product($data);
 		}
 	?>
-		
-
-
-
-		<figure class="left cold">
-			<img class="img" src="/img/cold-2.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-
-
-
-
-		
-		<figure class="left cold">
-			<img class="img" src="/img/cold-3.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-		<figure class="left cold">
-			<img class="img" src="/img/cold-4.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-		<figure class="left hot">
-			<img class="img" src="/img/hot-1.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-		<figure class="left hot">
-			<img class="img" src="/img/hot-2.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-		<figure class="left funny">
-			<img class="img" src="/img/funny-1.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
-		<figure class="left funny">
-			<img class="img" src="/img/funny-2.jpeg" alt="A cold color">
-			<span id="cold-2">$ 2.50</span>
-			<select class="select-more" id="#">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<input class="bt-add" type="submit" name="add-basket" value="ADD">
-		</figure>
 	</section>
 </body>
 </html>
