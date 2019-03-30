@@ -1,33 +1,37 @@
 <?PHP
-if (!file_exists("data"))
-{
-    mkdir("data");
-}
-    if (!file_exists("data/categories"))
-    {
-        $tab[] = array("categories"=>"rouge", "violet");
-        $tab[] = array("categories"=>"bleu", "vert");
-        $tab[] = array("categories"=>"arc-en-ciel");
-        $str = serialize($tab);
-        file_put_contents("data/categories", $str);
-    }
-    if (!file_exists("data/produits"))
-    {
-        if (!file_exists("data/images"))
-        {
-            mkdir("data/images");
-        }
-        file_put_contents("data/images/".".jpg", file_get_contents(".jpg"));
-        $tab2[] = array("name"=>"colors", "prix"=>"100", "img"=>"data/images/name_image");
-        $str = serialize($tab2);
-        file_put_contents("data/produits", $str);
-    }
-if (!file_exists("data/users") && isset($_POST) && isset($_POST["login"]) && isset($_POST["passwd"]) && isset($_POST["submit"]))
-{
-    $zou = hash("whirlpool", htmlspecialchars($_POST["passwd"]));
-    $tab3[] = array("login"=>htmlspecialchars($_POST["login"]), "passwd"=>$zou, "mail"=>"admin@admin.ru", "statut"=>"admin");
-    $str = serialize($tab3);
-    file_put_contents("data/users", $str);
-    header("location: index.php");
-}
+	// Create the array for the products --> data
+	// Create adm account
+	// Change the adm account
+	// header(Location : index.php);
+$data['cold'] = array(
+    "cold-1" => array("price" => "1", "img" => "img/cold-1.jpeg"),
+    "cold-2" => array("price" => "1", "img" => "img/cold-2.jpeg"),
+    "cold-3" => array("price" => "1", "img" => "img/cold-3.jpeg"),
+    "cold-4" => array("price" => "1", "img" => "img/cold-4.jpeg")
+);
+$data['hot'] = array(
+    "hot-1" => array("price" => "1", "img" => "img/hot-1.jpeg"),
+    "hot-2" => array("price" => "1", "img" => "img/hot-2.jpeg"),  
+);
+$data['funny'] = array(
+    "funny-1" => array("price" => "1", "img" => "img/funny-1.jpeg"),
+    "funny-2" => array("price" => "1", "img" => "img/funny-2.jpeg"),
+    "funny-3" => array("price" => "1", "img" => "img/funny-3.jpeg"),
+);
+if(file_put_contents("./data/product", serialize($data)) === FALSE)
+		echo "INSTALL ERROR\n";
 ?>
+<html>
+	<body>
+		<div class="loginform">
+            <p >
+			<form action="create" method="post">
+			Identifiant administrateur: <input type="text" name="login" value="root"/>
+			<br />
+			Mot de passe administrateur: <input type="password" name="passwd" />
+			</b>
+			<input type="submit" name="submit" value="OK" />
+			</form>
+		</p></div>
+</body>
+</html>
