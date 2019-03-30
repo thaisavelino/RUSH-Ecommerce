@@ -4,9 +4,9 @@
 	// Change the adm account
 	// header(Location : index.php);
 $data['cold'] = array(
-    "cold-1" => array("price" => "25", "img" => "__DIR__/img/cold-1.jpeg"),
-    "cold-2" => array("price" => "60", "img" => "__DIR__/img/cold-2.jpeg"),
-    "cold-3" => array("price" => "29", "img" => "__DIR__/img/cold-3.jpeg"),
+    "cold-1" => array("price" => "25", "img" => "img/cold-1.jpeg"),
+    "cold-2" => array("price" => "60", "img" => "img/cold-2.jpeg"),
+    "cold-3" => array("price" => "29", "img" => "img/cold-3.jpeg"),
     "cold-4" => array("price" => "36", "img" => "__DIR__/img/cold-4.jpeg")
 );
 $data['hot'] = array(

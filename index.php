@@ -6,7 +6,8 @@
 		$_SESSION['login'] = $_GET['login'];
 		$_SESSION['passwd'] = $_GET['passwd'];
 	}
-	include("products.php");
+//	include("products.php");
+
 ?>
 <html>
     <link rel="stylesheet" href="stylesheet.css">
@@ -19,9 +20,9 @@
       <link rel="stylesheet" type="text/css" href="css.css">
   </head>
 <body>
-<!--
-
--->
+<!--------------------------------------
+				MENU - TOP
+---------------------------------------->
 <header><a class="a-top" href="#" id="logo"></a>
     <nav class="nav-top">
         <a class="a-top" href="#" id="menu-icon"></a>
@@ -33,9 +34,13 @@
         </ul>
     </nav>
 </header>
-        
+
+     
 
 <div class="hold">
+	<!--------------------------------------
+				LOGIN - LEFT 
+	---------------------------------------->
 	<div class="menu-left">
 
 		<form method="post" action="connexion.php" style="margin: 20px" >
@@ -61,108 +66,124 @@
 		</div>
 	</div>
 
-	<div class="">
-		<section class="images">
-			<h1>Our Colors</h1>
-			<figure class="left cold">
-				<img class="img" src="/img/cold-1.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left cold">
-				<img class="img" src="/img/cold-2.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left cold">
-				<img class="img" src="/img/cold-3.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left cold">
-				<img class="img" src="/img/cold-4.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left hot">
-				<img class="img" src="/img/hot-1.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left hot">
-				<img class="img" src="/img/hot-2.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left funny">
-				<img class="img" src="/img/funny-1.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-			<figure class="left funny">
-				<img class="img" src="/img/funny-2.jpeg" alt="A cold color">
-				<span id="cold-2">$ 2.50</span>
-				<select class="select-more" id="#">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<input class="bt-add" type="submit" name="add-basket" value="ADD">
-			</figure>
-					
-					
-		</section>
-	</div>
-    
-    </html>
+	<!--------------------------------------
+				PRODUCTS
+	---------------------------------------->
+	<section class="images">
+	<h1>Our Colors</h1>
+
+	
+	<!--<figure class="left cold">
+			<img class="img" src="/img/cold-1.jpeg" alt="A cold color">-->
+		<?php
+		if(file_exists("./data/product"))
+			$data = unserialize(file_get_contents("./data/product"));
+		else
+			echo "File Product not found\n";
+		if($_GET['cat'] === NULL)
+			foreach ($data as $key => $el)
+			{
+				echo "<figure class=\"left cold\"><a href='./index.php?cat=".$key.
+				"'><img class='imgcat' src='" . $el['img'] . "' 
+				alt=\'" . $key . 
+				" title='" . $key.
+				"'/></a><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
+			}
+		elseif($_GET['cat'])
+		{
+			if ($_GET['cat'] !== "hot" && $_GET['cat'] !== "cold" && $_GET['cat'] !== "funny" && $_GET['cat'] !== "all")
+				echo "GET INJECTION ERROR\n";
+			else
+				show_product($data);
+		}
+	?>
+		
+
+
+
+		<figure class="left cold">
+			<img class="img" src="/img/cold-2.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+
+
+
+
+		
+		<figure class="left cold">
+			<img class="img" src="/img/cold-3.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+		<figure class="left cold">
+			<img class="img" src="/img/cold-4.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+		<figure class="left hot">
+			<img class="img" src="/img/hot-1.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+		<figure class="left hot">
+			<img class="img" src="/img/hot-2.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+		<figure class="left funny">
+			<img class="img" src="/img/funny-1.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+		<figure class="left funny">
+			<img class="img" src="/img/funny-2.jpeg" alt="A cold color">
+			<span id="cold-2">$ 2.50</span>
+			<select class="select-more" id="#">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<input class="bt-add" type="submit" name="add-basket" value="ADD">
+		</figure>
+	</section>
+</body>
+</html>
