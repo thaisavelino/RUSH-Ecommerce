@@ -56,6 +56,43 @@
 	</div>
 
 	<div class="main">
+		<section class="images">
+			<figure class="left cold">
+				<img class="img" src="/img/cold-1.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left cold">
+				<img class="img" src="/img/cold-2.jpeg" alt="A cold color">
+				<span id="cold-2">$ 2.50</span>
+				<select class="select-more" id="#">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<input class="bt-add" type="submit" name="add-basket" value="ADD">
+			</figure>
+			<figure class="left cold">
+				<img class="img" src="/img/cold-3.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left cold">
+				<img class="img" src="/img/cold-4.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left hot">
+				<img class="img" src="/img/hot-1.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left hot">
+				<img class="img" src="/img/hot-2.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left funny">
+				<img class="img" src="/img/funny-1.jpeg" alt="A cold color">
+			</figure>
+			<figure class="left funny">
+				<img class="img" src="/img/funny-2.jpeg" alt="A cold color">
+			</figure>
+					
+					
+		</section>
 
 	</div>
 
