@@ -1,5 +1,7 @@
 <?php
 //include("index.php");
+include("check_login.php");
+session_start();
 if ($_POST['submit'] == "")
 	return ;
 if ($_POST['submit'] != "Je m'inscris" || $_POST['login'] == "" || $_POST['passwd'] == "")
@@ -30,6 +32,9 @@ else
 	}
 	$top_user[] = $user;
 	file_put_contents("./data/passwd", serialize($top_user));
-	header('Location: index?cat=all');
+	if ($_SESSION['loggued_on_user'] == "root") {
+		header('Location: adminpage.php');
+	} else
+		header('Location: index?cat=all');
 }
 ?>

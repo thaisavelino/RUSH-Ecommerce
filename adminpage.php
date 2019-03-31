@@ -75,7 +75,7 @@
 	</div>
 
 	<!--------------------------------------
-				PRODUCTS
+				ADMIN ACTION
 	---------------------------------------->
 	<section class="images">
 		<div class="adm">
@@ -83,6 +83,14 @@
 				<h2>Delete user ?</h2>
 			<label for="login">Identifiant: </label><input type="text" name="login" />
 			<input type="submit" name="submit" value="Supprimer" />
+			</form>
+		</div>
+		<div class="adm">
+			<form method="post" action="addusr.php" style="margin: 20px">
+				<h2>Add new user </h>
+				<label for="login">Identifiant: </label><input type="text" name="login" required/>
+				<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
+				<input type="submit" name="submit" value="Je m'inscris"/>
 			</form>
 		</div>
 		</form>
