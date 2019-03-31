@@ -16,17 +16,17 @@
 <!--------------------------------------
 				MENU - TOP
 ---------------------------------------->
-<header><a class="a-top" href="#" id="logo"></a>
-    <nav class="nav-top">
-        <a class="a-top" href="#" id="menu-icon"></a>
-        <ul class="ul-top">
-            <li class="li-top"><a href="#" class="current">All</a></li>
-            <li class="li-top"><a href="#">Cold</a></li>
-            <li class="li-top"><a href="#">Hot</a></li>
-            <li class="li-top"><a href="#">Funny</a></li>
-        </ul>
-    </nav>
-</header>
+<header><a href="index.php?cat=all" class="a-top" id="logo"></a>
+		<nav class="nav-top">
+			<a class="a-top" href="#" id="menu-icon"></a>
+			<ul class="ul-top">
+				<li class="li-top"><a href="<?PHP echo "?cat=all" ?>" class="current">All</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=hot" ?>"> Hot</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=cold" ?>">Cold</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=funny" ?>">Funny</a></li>
+			</ul>
+		</nav>
+	</header>
         
 
 <div class="hold">

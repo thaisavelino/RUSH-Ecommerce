@@ -1,4 +1,5 @@
 <?php
+include("actionpanier.php");
 function check_prod($data)
 {
 	$check = 0;

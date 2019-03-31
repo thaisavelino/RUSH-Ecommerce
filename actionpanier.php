@@ -1,5 +1,5 @@
 <?php
-
+/*
 session_start();
 function add($nom_produit,$qteProduit,$prix_Produit)
 {
@@ -22,7 +22,6 @@ function add($nom_produit,$qteProduit,$prix_Produit)
       $_SESSION[panier][] = $select;
 	  return;
    }
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
-	
-}
+   echo "<p>Un problème est survenu veuillez contacter l'administrateur du site</p>";
+}*/
 ?>

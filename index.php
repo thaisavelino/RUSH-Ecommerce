@@ -2,6 +2,7 @@
 	// CHECK login and ADD products div.
 	session_start();
 	include("product.php");
+	include("actionpanier.php");
 	if ($_GET['cat'] == NULL)
 		header("Location:index.php?cat=all");
 	if($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] == "OK")
@@ -23,20 +24,20 @@
 	  <link rel="stylesheet" type="text/css" href="css.css">
   	</head>
 <body>
-<!--------------------------------------
-				MENU - TOP
----------------------------------------->
-<header><a class="a-top" href="#" id="logo"></a>
-    <nav class="nav-top">
-        <a class="a-top" href="#" id="menu-icon"></a>
-        <ul class="ul-top">
-            <li class="li-top"><a href="<?PHP echo "?cat=all" ?>" class="current">All</a></li>
-			<li class="li-top"><a href="<?PHP echo "?cat=hot" ?>"> Hot</a></li>
-            <li class="li-top"><a href="<?PHP echo "?cat=cold" ?>">Cold</a></li>
-            <li class="li-top"><a href="<?PHP echo "?cat=funny" ?>">Funny</a></li>
-        </ul>
-    </nav>
-</header>
+	<!--------------------------------------
+					MENU - TOP
+	---------------------------------------->
+	<header><a href="index.php?cat=all" class="a-top" id="logo"></a>
+		<nav class="nav-top">
+			<a class="a-top" href="#" id="menu-icon"></a>
+			<ul class="ul-top">
+				<li class="li-top"><a href="<?PHP echo "?cat=all" ?>" class="current">All</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=hot" ?>"> Hot</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=cold" ?>">Cold</a></li>
+				<li class="li-top"><a href="<?PHP echo "?cat=funny" ?>">Funny</a></li>
+			</ul>
+		</nav>
+	</header>
 
      
 
@@ -104,9 +105,12 @@
 				echo "<figure class=\"left cold\"><img class='imgcat' src='" . $el['img'] . "' 
 				alt=\'" . $key . 
 				" title='" . $key.
-				"'/><span id=\"cold-2\">" . $el['price'] . "</span>
+				"'/>
+				<form method=\"post\" action='produit.php?".$nom_produit."'\">
+				<span id=\"cold-2\">" . $el['price'] . "</span>
 				<input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\" />
 				<input class=\"bt-add2\" type=\"number\" min=\"1\" max=\"10\" name=\"nbarticles\" value=\"1\" />
+				</form>
 				</figure>";
 			}
 		}
@@ -144,7 +148,7 @@
 		if ($value === "ADD")
 		{
 			add($nom_produit, $qte, $prix_produit);
-			echo "<script>setTimeout(\"location.href = 'product.php?prod=$nom_produit';\", 100);</script>";
+			echo "<script>setTimeout(\"location.href = 'produit.php?prod=$nom_produit';\", 100);</script>";
 		}
 		?>
 </body>

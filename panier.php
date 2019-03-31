@@ -14,6 +14,17 @@ include ("actionpanier.php");
 	  <link rel="stylesheet" type="text/css" href="css.css">
   	</head>
 <body>
+<header><a href="index.php?cat=all" class="a-top" id="logo"></a>
+		<nav class="nav-top">
+			<a class="a-top" href="#" id="menu-icon"></a>
+			<ul class="ul-top">
+				<li class="li-top"><a href="index.php?cat=all"> All</a></li>
+				<li class="li-top"><a href="index.php?cat=all"> Hot</a></li>
+				<li class="li-top"><a href="index.php?cat=all"> Cold</a></li>
+				<li class="li-top"><a href="index.php?cat=all"> Funny</a></li>
+			</ul>
+		</nav>
+	</header>
 
 <table>
 <caption>Mon Panier</caption>
@@ -34,7 +45,7 @@ include ("actionpanier.php");
 	
 <?php
 		if (!$_SESSION['panier'])
-			echo "Votre panier est vide";
+		//	echo "Votre panier est vide";
 
 
 		if ($_SESSION[panier] && $_GET[value] !== "empty" && $_GET[command] !== "ok")
@@ -64,7 +75,7 @@ include ("actionpanier.php");
 		if($_GET[value] === "empty")
 		{
 			unset($_SESSION[panier]);
-			echo "Votre panier est vide";
+		//	echo "Votre panier est vide";
 		}
 
 		if($_GET[value] === "validate" && $_SESSION[panier])
