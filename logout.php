@@ -1,5 +1,6 @@
 <?php
 	session_start();
 	$_SESSION["loggued_on_user"] = "";
-	//header("Location: index.php");
+	//unset($_SESSION['panier']);
+	header("Location: index.php?cat=all");
 ?>

@@ -42,24 +42,36 @@
 	<!--------------------------------------
 				LOGIN - LEFT 
 	---------------------------------------->
+	
 	<div class="menu-left">
 
-		<form method="post" action="connexion.php" style="margin: 20px" >
-			<h2>Déjà client ?</h2>
+		<?php 
+		if($_SESSION['loggued_on_user'] === "" || !($_SESSION['loggued_on_user']))
+		{
+			echo'<form method="post" action="login.php" style="margin: 20px" >
+				<h2>Déjà client ?</h2>
 			<label for="login">Identifiant: </label><input type="text" name="login" />
 		
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd"/>
 			<input type="submit" name="submit" value="Je me connecte" />
-		</form>
-		<form method="post" action="creation.php" style="margin: 20px">
-			<h3>Pas encore client ? </h3>
-			<h3>Inscrivez-vous!</h3>
+			</form>
+			<form method="post" action="addusr.php" style="margin: 20px">
+				<h2>Pas encore client ? </h>
+				<h3>Inscrivez-vous!</h3>
 			
 			<label for="login">Identifiant: </label><input type="text" name="login" required/>
-			Adresse mail : <input type="text" name="mail" required/>
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
-			<input type="submit" name="submit" value="Je m'inscris"/>
-		</form>
+			<input type="submit" name="submit" value="Je m\'inscris"/>
+			</form>'; 
+		}
+		else
+		{
+			echo '<form method="post" action="logout.php">
+					<input type="submit" name="logout" value="Se deconnecter"/>
+				</form>';
+			echo "Un arc en ciel de couleur pour toi, ".$_SESSION['loggued_on_user']." !\n";
+		}
+		?>
 		<div class"go-basket">
 			<span><a href="panier.php">Accéder à mon panier</a></span>
 			<p class="basket-qnt">0</p>
@@ -72,22 +84,30 @@
 	---------------------------------------->
 	<section class="images">
 
-	
+	<p>test</p>
 	<!--<figure class="left cold">
 			<img class="img" src="/img/cold-1.jpeg" alt="A cold color">-->
+			
 		<?php
 		if(file_exists("./data/product"))
 			$data = unserialize(file_get_contents("./data/product"));
 		else
 			echo "File Product not found\n";
 		if($_GET['cat'] === NULL)
+		{
+			/*echo '<a href="<?PHP echo "?cat=all" ?>" class="current">All</a>"';*/
+			$_GET['cat'] = 'all';
 			foreach ($data as $key => $el)
 			{
 				echo "<figure class=\"left cold\"><img class='imgcat' src='" . $el['img'] . "' 
 				alt=\'" . $key . 
 				" title='" . $key.
-				"'/><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
+				"'/><span id=\"cold-2\">$ 3.50</span>
+				<input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\" />
+				<input class=\"bt-add2\" type=\"number\" min=\"1\" max=\"10\" name=\"nbarticles\" value=\"1\" />
+				</figure>";
 			}
+		}
 		elseif($_GET['cat'])
 		{
 			if ($_GET['cat'] === hot)

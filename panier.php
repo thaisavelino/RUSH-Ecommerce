@@ -1,5 +1,5 @@
 <?php
-include("frame.php");
+//include("index.php");
 include ("actionpanier.php");
 ?>
 <HTML>
