@@ -18,16 +18,15 @@
                 if ($arg[login] == $user)
                 {   
                     echo ("user :$user\n");
+                    unset($arg);
                   //  unset($GLOBALS[$user]);
-                  //  file_put_contents("./data/passwd", serialize($all_user));
+                   file_put_contents("./data/passwd", serialize($all_user));
                 }
-                    if ($arg['login'] == $user)
-                    {
-                        $arg['login'] = "";
+                   // if ($arg['login'] == $user)
+                    //{
+                     //   $arg['login'] = "";
                         //file_put_contents('.data/passwd', serialize($arg['login']));
                     //    header("Location: adminpage.php");
-                    }
-                   echo ($user);
             }
         } else {echo ("user doenst exist");}
     }
