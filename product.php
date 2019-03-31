@@ -37,3 +37,15 @@ function show_product($data)
 	echo "<p><?php echo \"$test\" ?></p>";
 }
 ?>
+<?php
+	$value = $_POST["add-basket"];
+	$qte = $_POST["nbarticles"];
+	$prix_produit = $el['price'];
+	$image_produit = $el['img'];
+	$nom_produit = $key;
+	if ($value === "ajouter")
+	{
+		add($nom_produit, $qte, $prix_produit);
+		echo "<script>setTimeout(\"location.href = 'product.php?prod=$nom_produit';\", 100);</script>";
+	}
+?>

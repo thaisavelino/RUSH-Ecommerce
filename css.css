@@ -285,7 +285,7 @@ input[type=submit]:active {
   margin: 0 auto;
   height: 100%;
   padding: 10px;
-  height: 100vh;
+  height: 93vh;
   overflow: auto;
 }
 .left { float: left; }

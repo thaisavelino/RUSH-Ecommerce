@@ -19,7 +19,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <title>Site</title>
+        <title>Rainbow - Your color Store</title>
 	  <link rel="stylesheet" type="text/css" href="css.css">
   	</head>
 <body>
@@ -104,7 +104,7 @@
 				echo "<figure class=\"left cold\"><img class='imgcat' src='" . $el['img'] . "' 
 				alt=\'" . $key . 
 				" title='" . $key.
-				"'/><span id=\"cold-2\">$ 3.50</span>
+				"'/><span id=\"cold-2\">" . $el['price'] . "</span>
 				<input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\" />
 				<input class=\"bt-add2\" type=\"number\" min=\"1\" max=\"10\" name=\"nbarticles\" value=\"1\" />
 				</figure>";
@@ -135,5 +135,17 @@
 		}
 	?>
 	</section>
+	<?php
+		$value = $_POST["add-basket"];
+		$qte = $_POST["nbarticles"];
+		$prix_produit = $el['price'];
+		$image_produit = $el['img'];
+		$nom_produit = $key;
+		if ($value === "ADD")
+		{
+			add($nom_produit, $qte, $prix_produit);
+			echo "<script>setTimeout(\"location.href = 'product.php?prod=$nom_produit';\", 100);</script>";
+		}
+		?>
 </body>
 </html>
