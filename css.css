@@ -224,10 +224,10 @@ input[type=submit].bt-add:hover {
 .btn-full:link,
 .btn-full:visited,
 input[type=submit] {
-  background-color: #479af4;
-  border: 1px solid #479af4;
+  background-color: #008aab;
+  border: 1px solid #008aab;
   color: #fff;
-  margin-right: 15px;
+  margin-left: 10px;
 }
 
 .btn-ghost:link,
@@ -294,13 +294,13 @@ hr {
   clear: both;
   margin: 250px 0 10px 0;
 }
-.imgcat {
+.img {
   display: inline;
   width: 150px;
   height: 150px;
   margin: 10px;
 }
-img.imgcat {
+img.img {
   display: block;
 }
 img.logo {
@@ -323,7 +323,43 @@ img.logo {
   display: inline;
   margin-right: 10px;
 }
-
+.menu-left > div {
+  margin: 15px 5px 15px 20px;
+}
+.menu-left > div > p{
+  background: rgba(255,255,255,0.3);
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+}
+.menu-left > div > span > a {
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  background: white;
+  color: #008ba9;
+  padding: 17px;
+  border-radius: 8px;
+  position: relative;
+}
+.menu-left > div > span > a > svg {
+  width: 48px;
+  display: inline;
+  float: left;
+  position: absolute;
+  left: 12px;
+  top: 5px;
+  fill: #008ba9;
+}
+.menu-left > form > input {
+  width: 70%;
+}
+p.welcome {
+  margin: 0px 40px 20px 20px;
+}
+.disconnect {
+  background-color: NULL;
+}
   /************************ Form *********************************/
 
   input {
