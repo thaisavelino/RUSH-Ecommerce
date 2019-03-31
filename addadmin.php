@@ -95,7 +95,21 @@
 			<label for="login">Identifiant: </label><input type="text" name="login" />
 			<input type="submit" name="submit" value="Supprimer" />
 		</form>
-
+		<form method="post" action="delete_usr.php" style="margin: 20px" >
+				<h2>ADD user?</h2>
+			<label for="login">Identifiant: </label><input type="text" name="login" />
+			<input type="submit" name="submit" value="Supprimer" />
+		</form>
+		<form method="post" action="delete_usr.php" style="margin: 20px" >
+				<h2>Delete Product?</h2>
+			<label for="login">Identifiant: </label><input type="text" name="login" />
+			<input type="submit" name="submit" value="Supprimer" />
+		</form>
+		<form method="post" action="delete_usr.php" style="margin: 20px" >
+				<h2>ADD Product?</h2>
+			<label for="login">Identifiant: </label><input type="text" name="login" />
+			<input type="submit" name="submit" value="Supprimer" />
+		</form>
 	</section>
 </body>
 </html>
