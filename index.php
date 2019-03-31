@@ -17,8 +17,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>Site</title>
-      <link rel="stylesheet" type="text/css" href="css.css">
-  </head>
+	  <link rel="stylesheet" type="text/css" href="css.css">
+	  <link rel="stylesheet" type="text/css" href="css.css">
+	  <script type="text/javascript">
+			var
+			imghot = document.getElementsByClassName("hot"),
+			imgcold = document.getElementsByClassName("cold"),
+			imgfunny = document.getElementsByClassName("funny"),
+			
+			btall = document.getElementById("all"),
+			btcold = document.getElementById("cold"),
+			bthot = document.getElementById("hot"),
+			btfunny = document.getElementById("funny");
+
+
+			bthot.addEventListener("click", function(){
+			if (imghot.style.display == 'none') {
+				imghot.style.display = 'block';
+			} else {
+				imghot.style.display = 'none';
+			}
+			}, false);
+		</script>
+  	</head>
 <body>
 <!--------------------------------------
 				MENU - TOP
@@ -27,10 +48,10 @@
     <nav class="nav-top">
         <a class="a-top" href="#" id="menu-icon"></a>
         <ul class="ul-top">
-            <li class="li-top"><a href="#" class="current">All</a></li>
-            <li class="li-top"><a href="#">Cold</a></li>
-            <li class="li-top"><a href="#">Hot</a></li>
-            <li class="li-top"><a href="#">Funny</a></li>
+            <li id="all" class="li-top"><a href="#" class="current">All</a></li>
+			<li id="cold" class="li-top"><a href="#">Cold</a></li>
+            <li id="hot" class="li-top"><a href="#">Hot</a></li>
+            <li id="funny" class="li-top"><a href="#">Funny</a></li>
         </ul>
     </nav>
 </header>
@@ -83,11 +104,10 @@
 		if($_GET['cat'] === NULL)
 			foreach ($data as $key => $el)
 			{
-				echo "<figure class=\"left cold\"><a href='./index.php?cat=".$key.
-				"'><img class='imgcat' src='" . $el['img'] . "' 
-				alt=\'" . $key . 
-				" title='" . $key.
-				"'/></a><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
+				echo "<figure class=\"left .$key.\"><img class='img' src='".$el['img']."' 
+				alt=\" . $key . 
+				\" title='" . $key.
+				"'/><span id=\"cold-2\">$ 2.50</span><input class=\"bt-add\" type=\"submit\" name=\"add-basket\" value=\"ADD\"></figure>";
 			}
 		elseif($_GET['cat'])
 		{
@@ -111,7 +131,7 @@
 
 
 
-		
+
 		<figure class="left cold">
 			<img class="img" src="/img/cold-3.jpeg" alt="A cold color">
 			<span id="cold-2">$ 2.50</span>
