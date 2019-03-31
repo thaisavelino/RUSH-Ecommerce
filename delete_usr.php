@@ -23,7 +23,7 @@
                     // just username echo ($arg[login]);
                     //print_r($arg); //the right array we must delete
                     unset($arg);
-                   //file_put_contents("./data/passwd", serialize($all_user));
+                   //file_put_contents("./data/passwd", serialize($all_user)); // dont need this
                 }
             }
         } else {

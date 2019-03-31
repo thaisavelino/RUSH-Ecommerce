@@ -91,11 +91,6 @@
 				PRODUCTS
 	---------------------------------------->
 	<section class="images">
-
-	<p>test</p>
-	<!--<figure class="left cold">
-			<img class="imgcat" src="/img/cold-1.jpeg" alt="A cold color">-->
-			
 		<?php
 		if(file_exists("./data/product"))
 			$data = unserialize(file_get_contents("./data/product"));
@@ -103,7 +98,6 @@
 			echo "File Product not found\n";
 		if($_GET['cat'] === NULL)
 		{
-			/*echo '<a href="<?PHP echo "?cat=all" ?>" class="current">All</a>"';*/
 			$_GET['cat'] = 'all';
 			foreach ($data as $key => $el)
 			{
