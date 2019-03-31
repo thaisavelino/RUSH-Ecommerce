@@ -2,6 +2,8 @@
 	// CHECK login and ADD products div.
 	session_start();
 	include("product.php");
+	if ($_GET['cat'] == NULL)
+		header("Location:index.php?cat=all");
 	if($_GET['login'] && $_GET['passwd'] && $_GET['submit'] && $_GET['submit'] == "OK")
 	{
 		$_SESSION['login'] = $_GET['login'];
