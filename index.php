@@ -19,27 +19,6 @@
         <meta charset="UTF-8">
         <title>Site</title>
 	  <link rel="stylesheet" type="text/css" href="css.css">
-	  <link rel="stylesheet" type="text/css" href="css.css">
-	  <script type="text/javascript">
-			var
-			imghot = document.getElementsByClassName("hot"),
-			imgcold = document.getElementsByClassName("cold"),
-			imgfunny = document.getElementsByClassName("funny"),
-			
-			btall = document.getElementById("all"),
-			btcold = document.getElementById("cold"),
-			bthot = document.getElementById("hot"),
-			btfunny = document.getElementById("funny");
-
-
-			bthot.addEventListener("click", function(){
-			if (imghot.style.display == 'none') {
-				imghot.style.display = 'block';
-			} else {
-				imghot.style.display = 'none';
-			}
-			}, false);
-		</script>
   	</head>
 <body>
 <!--------------------------------------
