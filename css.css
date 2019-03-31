@@ -377,7 +377,23 @@ p.welcome {
 .disconnect {
   background-color: NULL;
 }
-  
+
+  /************************ ADM PAGE *********************************/
+
+.adm {
+  margin: 10px 15px;
+  background-color: #ffffff73;
+}
+section.images > div.adm {
+  width: 300px;
+  float: left;
+}
+.adm > form > input[type="text"], .adm > form > input[type="password"] {
+  width: 100%;
+}
+.adm > form > label {
+  padding-left: 8px;
+}
 
   /************************ TABLE *********************************/
 
@@ -592,11 +608,5 @@ header {
   }
   
 
-/* ----------------------------------------------- */
-/* ADM PAGE */
-/* ----------------------------------------------- */
 
-section.images > div.adm {
-  background-color: red;
-}
   /************************* MENU  LEFT*********************************/
