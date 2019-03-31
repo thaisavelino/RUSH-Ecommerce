@@ -7,8 +7,6 @@
 		$_SESSION['login'] = $_GET['login'];
 		$_SESSION['passwd'] = $_GET['passwd'];
 	}
-//	include("products.php");
-
 ?>
 <html>
     <link rel="stylesheet" href="stylesheet.css">
@@ -61,7 +59,7 @@
 			
 			<label for="login">Identifiant: </label><input type="text" name="login" required/>
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
-			<input type="submit" name="submit" value="Je m\'inscris"/>
+			<input type="submit" name="submit" value="s\'inscrire"/>
 			</form>'; 
 		}
 		else
@@ -81,16 +79,16 @@
 		<div class="adm">
 			<form method="post" action="delete_usr.php" style="margin: 20px" >
 				<h2>Delete user ?</h2>
-			<label for="login">Identifiant: </label><input type="text" name="login" />
-			<input type="submit" name="submit" value="Supprimer" />
+				<label for="login">Identifiant: </label><input type="text" name="login" />
+				<input type="submit" name="submit" value="Supprimer" />
 			</form>
 		</div>
 		<div class="adm">
 			<form method="post" action="addusr.php" style="margin: 20px">
-				<h2>Add new user </h>
+				<h2>Add new user </h2>
 				<label for="login">Identifiant: </label><input type="text" name="login" required/>
 				<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
-				<input type="submit" name="submit" value="Je m'inscris"/>
+				<input type="submit" name="submit" value="s'inscrire"/>
 			</form>
 		</div>
 		</form>

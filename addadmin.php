@@ -61,7 +61,7 @@
 			
 			<label for="login">Identifiant: </label><input type="text" name="login" required/>
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
-			<input type="submit" name="submit" value="Je m\'inscris"/>
+			<input type="submit" name="submit" value="s\'inscrire"/>
 			</form>'; 
 		}
 		else

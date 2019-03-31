@@ -4,7 +4,7 @@ include("check_login.php");
 session_start();
 if ($_POST['submit'] == "")
 	return ;
-if ($_POST['submit'] != "Je m'inscris" || $_POST['login'] == "" || $_POST['passwd'] == "")
+if ($_POST['submit'] != "s'inscrire" || $_POST['login'] == "" || $_POST['passwd'] == "")
 {
 	echo "<div style=\"color:red;margin:20px\"> Il manque quelques chose ... !</div>";
 }

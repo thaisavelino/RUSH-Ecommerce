@@ -49,7 +49,7 @@
 			<label for="login">Identifiant: </label><input type="text" name="login" required/>
 			Adresse mail : <input type="text" name="mail" required/>
 			<label for="passwd">Mot de passe: </label><input type="password" name="passwd" required/>
-			<input type="submit" name="submit" value="Je m'inscris"/>
+			<input type="submit" name="submit" value="s'inscrire"/>
 		</form>
 		<div class"go-basket">
 			<span><a href="panier.php">Accéder à mon panier</a></span>
